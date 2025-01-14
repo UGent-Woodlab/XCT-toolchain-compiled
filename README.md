@@ -46,7 +46,7 @@ CoreComparison facilitates cross-dating by displaying ring-width curves of indic
 ---
 
 ## Excel Templates
-xx
+Excel files are used to indicate which samples, what voxel size, and what reference pair configuration was used for each scan. this info is loaded in CoreProcessor and used to export individual digital increment cores. Three examples are given, one with one reference pair (15micronTemplate.xlsx), and two with multiple reference pairs (30micronTemplate.xlsx, 60micronTemplate.xlsx). These correspond to the sample holders and scan settings presented in [this paper](todo). 
 
 ---
 
