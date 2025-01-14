@@ -2,18 +2,19 @@
     <h1 align="center">XCT.read</h1>
 </p>
 
-[Verschuren, Louis![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^aut][^cre][^UG-WL];
-[Matskovsky, Vladimir![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3771-239X)[^aut][^UG-WL];
+[Matskovsky, Vladimir![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3771-239X)[^aut][^cre][^UG-WL];
+[Verschuren, Louis![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^aut][^UG-WL];
+[De Mil, Tom![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-6207-9613)[^aut][^TERRA];
 [Van den Bulcke, Jan![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^aut][^UG-WL]
 
 [^aut]: author
 [^cre]: contact person
-[^UG-WL]: UGent-Woodlab
+[^UG-WL]: UGent‐Woodlab, Ghent
+[^TERRA]: Forest Is Life, TERRA Teaching and Research Centre, Gembloux
 
 
 
-This is the repository for the XCT.Read R-function. This function was created to easily read and calculate ring width and density parameters using the txt-formatted ring indications and density profile output from the MATLAB-based [RingIndicator software](https://dendrochronomics.ugent.be/), created at UGent-Woodlab. The section of the profile where a density parameter is calculated can be set by the user: either a fraction of the ring (e.g. the second quarter of each ring) or a fixed width (e.g. the last 100 µm of each ring). The output of the function is a dplR or a long format data frame.
-
+This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (check the needed version in filenames of the compiled programs). More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be).
 
 #####  Table of Contents
 
