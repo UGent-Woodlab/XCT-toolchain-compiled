@@ -1,5 +1,5 @@
 <p align="center">
-    <h1 align="center">XCT.read</h1>
+    <h1 align="center">XCT Toolchain</h1>
 </p>
 
 [Matskovsky, Vladimir![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3771-239X)[^aut][^cre][^UG-WL];
@@ -12,53 +12,47 @@
 [^UG-WL]: UGent‐Woodlab, Ghent
 [^TERRA]: Forest Is Life, TERRA Teaching and Research Centre, Gembloux
 
-
-
-This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (check the needed version in filenames of the compiled programs). More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be).
+This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function. More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be).
 
 #####  Table of Contents
 
-- [ XCT.Read](#function-xctreadr)
-- [ Example use](#example-use-xctreadrmd)
-- [ Test data](#test-data-folder)
+- [ CoreProcessor](#corecrocessor)
+- [ RingIndicator](#ringindicator)
+- [ CoreComparison](#corecomparison)
+- [ Excel Templates](#exceltemplates)
 - [ Getting Started](#getting-started)
 - [ Cite our work](#cite-our-work)
 - [ License](#license)
 
 ---
 
-##  Function: XCT.Read.R
-XCT.Read function reads and calculates ring width and density parameters from txt-formatted ring indications and density profile output. The parameters are: 
-- path: A path to the folder containing the txt files. 
-- output: The output type, can be "ringwidth" (dplR format of ring width), "density" (dplR format of RW), "ringwidth_density" (long format of the sample, year, ring width, and density), or "density_profile" (long format of the sample, year, and density profile in that year)
-- densityType: The type of density to calculate, can be "fraction" or "fixed". "fraction" calculates the density in a variable width window that corresponds to two fraction numbers that go from 0 (start ring) to 1 (end ring), set in variable area. "fixed" calculates the density in a fixed width window, starting from the beginning or the end of the ring. set in variable area.
-- area: Fraction of the ring to calculate the density parameter. If densityType = "fraction" this is a vector of two numbers that go from 0 (start ring) to 1 (end ring). If densityType = "fixed" this is a vector with "start" or "end" as the first variable, and the width of the window in micrometers as the second variable.
-- fun: The function to calculate the density in the selected area, can be "mean", "median", "min", "max", or "mean_top_x". "mean_top_x" calculates the mean of the x highest values in the selected area, the variable x should be set to a fraction between 0 and 1.
-- x: Fraction of the highest values to calculate the mean. Only used if fun = "mean_top_x".
-- removeNarrowRings: Removes density parameters of rings that are too small, set in minRingWidth. Can be either TRUE or FALSE.
-- minRingWidth: Minimum width of the ring in mm that should be used in density calculations, only if removeNarrowRings = TRUE. 
+## CoreProcessor
+CoreProcessor extracts image volumes of individual samples from scans, orients them according to the vertical fiber direction, and converts them to absolute density values. Since reconstructed XµCT scans in our setup can exceed 300 GB, it is time-consuming and often impractical to load these entire scans into memory. To address this, cores are extracted using a slice-by-slice method. First, 100 evenly spaced slices of the scan are averaged and plotted for manual annotation of locations of the samples and reference pairs. The fiber orientation of each sample is also marked manually. The software then automatically processes each indicated sample by extracting, rotating, and converting it slice-by-slice. Initially, reference curves are generated by extracting the POM and air reference pairs from each slice. Then, based on available RAM, the program processes a part of the samples, extracting and converting them in batches until all cores in the scan are completed. This approach eliminates the need to load the entire scan into memory at once.
 
+The extraction process also supports the assignment of different air and POM reference pairs to various groups of increment cores. This feature is particularly useful for mitigating the effects of beam hardening, especially in larger sample holders.
+
+The file type for extracted cores is signed int16 multi-page BigTIFF. The traditional Tagged Image File Format (TIFF) is limited to a maximum file size of about 4 GB. In contrast, the BigTIFF format allows for files up to 16 Exabytes. Using this format is necessary as long cores scanned at 15 µm resolution frequently exceed the 4 GB limit of regular TIFF. Additionally, the use of signed int16 was implemented to accommodate negative density values. Negative density measurements can, for example, occur in samples with large vessels, where the air inside the vessels has an approximate density of zero. Due to noise, the measured density of air follows a normal distribution around zero. Changing the negative values to zero would overestimate the total density of the sample as only the positive part of the distribution would be retained. The software also uses TIFF tags to define voxel size (resolution), ensuring that the images can be universally understood by other software packages. This, for example, enables easy image manipulation in programs like [Fiji](https://imagej.net/software/fiji/). The density value -9999 is used as the NA value, these voxels are automatically removed from the subsequent processing chain by RingIndicator. This is for example useful when certain parts of a sample need to be excluded from the density profile. 
 
 ---
 
-## Example use: XCT.Read.Rmd
-An example R Markdown file that showcases the different possible outputs and calculations. 
+## RingIndicator
+RingIndicator is used to indicate ring boundaries and calculate density profiles. It is custom-made to work with XµCT images but can also be used to measure optical RGB, anatomical masks, multi-spectral images, or any other TIFF image format. Ring boundaries are indicated as lines, both on the transverse and the radial plane of the 3D digital increment core. The indication process is semi-automatic, as borders can be automatically detected using peaks and valleys in the density profile. For each sample, a continuous density profile along the whole length of the core is calculated which accounts for the 3D orientation of the ring boundaries. The user can set the size of the cross-sectional area along which the profile density is calculated, as well as an optional filter to remove lower density values (useful for MXD studies). Automatic batch calculation of density profiles with different settings afterward is also an option. The program can handle missing rings, and fractures in a core that should not be included in the density profile. There is also an option to display an average of multiple slices that accounts for the orientation of the ring borders. This is particularly useful when handling extremely narrow rings or very noisy scans. All indication data and density profiles are saved as .txt files, that accompany the digital core.  
 
 ---
 
-## Test data folder
-Some example txt indication files. 
+## CoreComparison
+CoreComparison facilitates cross-dating by displaying ring-width curves of indicated cores and optional reference chronologies. When changes are made in RingIndicator, such as adjusting indications or the felling date, these updates will be reflected in CoreComparison by pressing the refresh button. It also calculates inter-series gleichläufigkeit (GLK) and correlation statistics between all loaded series. 
+
+---
+
+## Excel Templates
+xx
 
 ---
 
 ## Getting started
 
-Before running the function, ensure that you have the following packages installed and loaded:
-- library("tidyverse")
-- library("dplR")
-
-dplR is not used within the function itself but is needed to process the output which can be set to dplR dataframe. 
-
+x
 ---
 
 ## Cite our work
