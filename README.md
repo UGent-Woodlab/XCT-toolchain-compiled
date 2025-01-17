@@ -61,7 +61,7 @@ Excel files are used to indicate which samples, what voxel size, and what refere
 
 You can find the paper where the entire pipeline is described [here](TODO). Please cite the following papers when using our toolchain or software: [Van den Bulcke et al. 2014](https://doi.org/10.1016/j.dendro.2013.07.001), [De Mil et al. 2016](https://doi.org/10.1093/aob/mcw063), [Van den Bulcke et al. 2019](https://doi.org/10.1093/aob/mcz126), [De Mil and Van den Bulcke 2023](https://dx.doi.org/10.3791/65208), and [Verschuren et al. 2025](todo).
 
-When using the software, also cite the proper Zenodo DOI: [XCT Toolchain compiled packages](todo) and [XCT.Read R function](todo)
+When using the software, also cite the proper Zenodo DOI: [XCT Toolchain compiled packages](https://doi.org/10.5281/zenodo.14677732) and [XCT.Read R function](https://doi.org/10.5281/zenodo.14654939)
 
 ---
 
