@@ -2,6 +2,10 @@
     <h1 align="center">XCT Toolchain</h1>
 </p>
 
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14677733.svg)](https://doi.org/10.5281/zenodo.14677733)
+
 [Matskovsky, Vladimir![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3771-239X)[^aut][^cre][^UG-WL];
 [Verschuren, Louis![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^aut][^UG-WL];
 [De Mil, Tom![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-6207-9613)[^aut][^TERRA];
