@@ -1,13 +1,6 @@
 <p align="center">
   <img src="./Fig.JPG" width="100%" alt="logo">
 </p>
-<p align="center">
-    <h1 align="center">YoloAnatomy</h1>
-</p>
-
-
-
-
 
 <p align="center">
     <h1 align="center">XCT Toolchain</h1>
