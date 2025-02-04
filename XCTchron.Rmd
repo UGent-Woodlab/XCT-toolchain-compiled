@@ -1,0 +1,47 @@
+---
+title: "XCTchron"
+author: "Louis Verschuren"
+date: "2024-10-29"
+output: html_document
+---
+
+
+
+```{r setup}
+
+remove(list = ls())
+
+#### load necessary packages ####
+library("readxl")
+
+
+```
+
+
+
+# read, convert, and export
+```{r}
+
+# read the chron
+chron <- readxl::read_xlsx(paste0("Datafolder/Chron.xlsx"))
+
+# build the table
+table <- data.frame(round((chron[, 2] - min(chron[, 2])) / (max(chron[, 2]) - min(chron[, 2])), 10), chron[, 1], 3000, max(chron[,1]), 0, 0) # change the "3000" to higher or lower value if you want to change the size of the chron in CoreComparison
+
+# export the chron
+write.table(table, file = "Datafolder/AAchron_ringwidth.txt", sep = "\t", row.names = FALSE, col.names = FALSE)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
