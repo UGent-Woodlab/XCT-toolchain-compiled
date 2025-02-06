@@ -62,6 +62,7 @@ Excel files are used to indicate which samples, what voxel size, and what refere
 - These packages are compiled for windows and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). 
 - The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function.
 - More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](todo).
+- Sample scans can be downloaded on [Zenodo](https://doi.org/10.5281/zenodo.14824999)
 
 ---
 
