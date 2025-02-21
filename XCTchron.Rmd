@@ -12,14 +12,19 @@ output: html_document
 remove(list = ls())
 
 #### load necessary packages ####
+library("dplR")
+library("tidyverse")
 library("readxl")
+library("gdata")
+
+source("XCT.Read.R")
 
 
 ```
 
 
 
-# read, convert, and export
+# from chronology in excel
 ```{r}
 
 # read the chron
@@ -29,11 +34,34 @@ chron <- readxl::read_xlsx(paste0("Datafolder/Chron.xlsx"))
 table <- data.frame(round((chron[, 2] - min(chron[, 2])) / (max(chron[, 2]) - min(chron[, 2])), 10), chron[, 1], 3000, max(chron[,1]), 0, 0) # change the "3000" to higher or lower value if you want to change the size of the chron in CoreComparison
 
 # export the chron
-write.table(table, file = "Datafolder/AAchron_ringwidth.txt", sep = "\t", row.names = FALSE, col.names = FALSE)
+gdata::write.fwf(signif(table,10), file = "Datafolder/AAchron_ringwidth.txt", append = TRUE, quote = FALSE, sep = ", ", colnames = FALSE)
 
 ```
 
 
+# from chronology in XCT txt format 
+```{r}
+
+# read ringwidth
+Data <- XCT.read(path = "DataFolder", output = "ringwidth")
+
+# save to rwl for cofecha
+write.rwl(Data, "DataFolder/TRW.rwl")
+
+# make chronology
+chron <- chron(detrend(Data, method = "Spline", nyrs = 50))
+
+# build the table
+table <- data.frame(round((chron[, 1] - min(chron[, 1])) / (max(chron[, 1]) - min(chron[, 1])), 10), as.numeric(row.names(chron)), 3000, max(as.numeric(row.names(chron))), 0, 0) # change the "3000" to higher or lower value if you want to change the size of the chron in CoreComparison
+
+# export the chron
+gdata::write.fwf(signif(table,10), file = "Datafolder/AAchron_ringwidth2.txt", append = TRUE, quote = FALSE, sep = ", ", colnames = FALSE)
+
+
+
+
+
+```
 
 
 
