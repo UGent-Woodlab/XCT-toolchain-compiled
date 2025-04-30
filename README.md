@@ -20,7 +20,7 @@
 [^UG-WL]: UGent‐Woodlab, Ghent
 [^TERRA]: Forest Is Life, TERRA Teaching and Research Centre, Gembloux
 
-This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function. More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](todo).
+This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function. More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
 
 #####  Table of Contents
 
@@ -61,14 +61,14 @@ Excel files are used to indicate which samples, what voxel size, and what refere
 ## Getting started
 - These packages are compiled for windows and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). 
 - The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function.
-- More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](todo).
+- More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
 - Sample scans can be downloaded on [Zenodo](https://doi.org/10.5281/zenodo.14824998)
 
 ---
 
 ## Cite our work
 
-You can find the paper where the entire pipeline is described [here](TODO). Please cite the following papers when using our toolchain or software: [Van den Bulcke et al. 2014](https://doi.org/10.1016/j.dendro.2013.07.001), [De Mil et al. 2016](https://doi.org/10.1093/aob/mcw063), [Van den Bulcke et al. 2019](https://doi.org/10.1093/aob/mcz126), [De Mil and Van den Bulcke 2023](https://dx.doi.org/10.3791/65208), and [Verschuren et al. 2025](todo).
+You can find the paper where the entire pipeline is described [here](TODO). Please cite the following papers when using our toolchain or software: [Van den Bulcke et al. 2014](https://doi.org/10.1016/j.dendro.2013.07.001), [De Mil et al. 2016](https://doi.org/10.1093/aob/mcw063), [Van den Bulcke et al. 2019](https://doi.org/10.1093/aob/mcz126), [De Mil and Van den Bulcke 2023](https://dx.doi.org/10.3791/65208), and [Verschuren et al. 2025](https://doi.org/10.1016/j.dendro.2025.126343).
 
 When using the software, also cite the proper Zenodo DOI: [XCT Toolchain compiled packages](https://doi.org/10.5281/zenodo.14677732) and [XCT.Read R function](https://doi.org/10.5281/zenodo.14654939)
 
