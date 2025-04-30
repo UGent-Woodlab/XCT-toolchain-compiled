@@ -54,7 +54,7 @@ CoreComparison facilitates cross-dating by displaying ring-width curves of indic
 ---
 
 ## Excel Templates
-Excel files are used to indicate which samples, what voxel size, and what reference pair configuration was used for each scan. this info is loaded in CoreProcessor and used to export individual digital increment cores. Three examples are given, one with one reference pair (15micronTemplate.xlsx), and two with multiple reference pairs (30micronTemplate.xlsx, 60micronTemplate.xlsx). These correspond to the sample holders and scan settings presented in [this paper](todo). 
+Excel files are used to indicate which samples, what voxel size, and what reference pair configuration was used for each scan. this info is loaded in CoreProcessor and used to export individual digital increment cores. Three examples are given, one with one reference pair (15micronTemplate.xlsx), and two with multiple reference pairs (30micronTemplate.xlsx, 60micronTemplate.xlsx). These correspond to the sample holders and scan settings presented in [this paper](https://doi.org/10.1016/j.dendro.2025.126343). 
 
 ---
 
@@ -68,7 +68,7 @@ Excel files are used to indicate which samples, what voxel size, and what refere
 
 ## Cite our work
 
-You can find the paper where the entire pipeline is described [here](TODO). Please cite the following papers when using our toolchain or software: [Van den Bulcke et al. 2014](https://doi.org/10.1016/j.dendro.2013.07.001), [De Mil et al. 2016](https://doi.org/10.1093/aob/mcw063), [Van den Bulcke et al. 2019](https://doi.org/10.1093/aob/mcz126), [De Mil and Van den Bulcke 2023](https://dx.doi.org/10.3791/65208), and [Verschuren et al. 2025](https://doi.org/10.1016/j.dendro.2025.126343).
+You can find the paper where the entire pipeline is described [here](https://doi.org/10.1016/j.dendro.2025.126343). Please cite the following papers when using our toolchain or software: [Van den Bulcke et al. 2014](https://doi.org/10.1016/j.dendro.2013.07.001), [De Mil et al. 2016](https://doi.org/10.1093/aob/mcw063), [Van den Bulcke et al. 2019](https://doi.org/10.1093/aob/mcz126), [De Mil and Van den Bulcke 2023](https://dx.doi.org/10.3791/65208), and [Verschuren et al. 2025](https://doi.org/10.1016/j.dendro.2025.126343).
 
 When using the software, also cite the proper Zenodo DOI: [XCT Toolchain compiled packages](https://doi.org/10.5281/zenodo.14677732) and [XCT.Read R function](https://doi.org/10.5281/zenodo.14654939)
 
