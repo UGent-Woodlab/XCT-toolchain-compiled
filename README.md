@@ -20,7 +20,7 @@
 [^UG-WL]: UGent‐Woodlab, Ghent
 [^TERRA]: Forest Is Life, TERRA Teaching and Research Centre, Gembloux
 
-This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function. More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
+This is the repository for the in-house developed XCT Toolchain software suite (compiled versions), based on MATLAB. It consists of three executable programs: CoreProcessor, which extracts individual cores from scans and converts them to absolute density values; RingIndicator, designed for semi-automatic ring indication and density profile calculation; and CoreComparison, which facilitates cross-dating. The packages are compiled for Microsoft Windows, and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function. More info, [a comprehensive written manual](https://dendrochronomics.ugent.be/downloads/XCT%20Toolchain%20written%20manual.pdf), and [video manuals](https://dendrochronomics.ugent.be/#manual) are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
 
 #####  Table of Contents
 
@@ -61,7 +61,7 @@ Excel files are used to indicate which samples, what voxel size, and what refere
 ## Getting started
 - These packages are compiled for windows and require the free installation of [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) (currently version 2024b). 
 - The output of indications and density profile calculations are in txt format and can be loaded and manipulated in R using the [XCT.Read](https://github.com/UGent-Woodlab/XCT.read-R-function/) function.
-- More info and comprehensive written and video manuals are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
+- More info, [a comprehensive written manual](https://dendrochronomics.ugent.be/downloads/XCT%20Toolchain%20written%20manual.pdf), and [video manuals](https://dendrochronomics.ugent.be/#manual) are available for free at [our site](https://dendrochronomics.ugent.be) and in [this paper](https://doi.org/10.1016/j.dendro.2025.126343).
 - Sample scans can be downloaded on [Zenodo](https://doi.org/10.5281/zenodo.14824998)
 
 ---
